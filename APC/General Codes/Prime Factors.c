@@ -1,0 +1,16 @@
+#include<stdio.h>
+void primeFactors(int n)
+{
+    int i;
+  for( i=2;n>1;i++)
+  {
+    while(n%i==0)
+    {
+      printf("%d\n",i);
+      n=n/i;
+    }
+  }
+}
+int main(){
+    primeFactors(15);
+}
