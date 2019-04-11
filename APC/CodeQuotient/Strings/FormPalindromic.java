@@ -12,7 +12,10 @@ public class FormPAlindromic{
 
      public static void main(String []args){
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
+        
+        //String str = sc.nextLine();   // Here use of nextLine is prohibited because it will read input upto next line an case input is of 2 or more lines it will give error.
+          
+         String str = sc.next(); 
         
         //To get frequency of each charactre
         HashMap<Character,Integer>map = new HashMap<Character,Integer>();
