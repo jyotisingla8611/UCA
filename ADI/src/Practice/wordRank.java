@@ -1,0 +1,58 @@
+//To find the Dictionary rank of a word having NON_REPEATED alphabets
+package Practice;
+import java.util.*;
+public class wordRank{
+
+     static int fact(int n){
+         int f = 1;
+         while(n > 1){
+             f = f *n;
+             n--;
+         }
+         return f;
+     }
+     static int min_count(int i,int n,int k,int []a){
+         int cnt = 0;
+         for(int j = i ;j < n ;j++){
+             if(a[j] < k)
+               cnt++;
+         }
+         return cnt;
+         
+     }
+     public static void main(String []args){
+        String str = "take";
+        char[] arr = str.toCharArray();
+        Arrays.sort(arr);
+        int sum = 1;
+        String temp = new String(arr);
+        int len = str.length();
+        System.out.println("Sorted String is as : ");
+        System.out.println(temp);
+        int[]array = new int[len];
+        for(int i = 0 ; i < len ; i++){
+            array[i] = temp.indexOf(str.charAt(i))+1;
+        }
+        System.out.println("Location of alphabet in order : ");
+        for(int i = 0 ; i < len ; i++){
+            System.out.print(array[i]);
+        }
+        System.out.println("");
+        for(int i = 0 ;i < len-1 ; i++){
+            array[i] = min_count(i+1,len,array[i],array);
+
+        }
+        array[len-1] = 0;
+        System.out.println("Number of smaller digits : ");
+        for(int i = 0 ; i < len ; i++){
+            System.out.print(array[i]);
+        }
+        System.out.println("");
+        int r = len-1;
+        for(int i = 0 ; i < len ;i++){
+            sum = sum + array[i] * fact(r--);
+        }
+        System.out.println("Rank is as : ");
+        System.out.print(sum);
+     }
+}
