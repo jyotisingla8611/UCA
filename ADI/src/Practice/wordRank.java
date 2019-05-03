@@ -94,7 +94,7 @@ public class HelloWorld{
         String str = "take";
         char[] arr = str.toCharArray();
         Arrays.sort(arr);
-        int sum = 0;
+        int sum = 1;
         String temp = new String(arr);
         int len = str.length();
         System.out.println(temp);
